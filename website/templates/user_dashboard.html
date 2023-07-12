@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/user_dashboard.css" />
+    <link rel="stylesheet" href="../static/css/card-style.css" />
+
+    <title>User Dashboard</title>
+</head>
+<!-- <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    /* Float four columns side by side */
+
+    .column {
+      float: left;
+      width: 25%;
+      padding: 0 10px;
+    }
+    /* Remove extra left and right margins, due to padding in columns */
+
+    .row {
+      margin: 0 -5px;
+    }
+    /* Clear floats after the columns */
+
+    .row:after {
+      content:"";
+      display: table;
+      clear: both;
+    }
+    /* Style the counter cards */
+
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      /* this adds the"card" effect */
+      padding: 16px;
+      text-align: center;
+      background-color: #f1f1f1;
+    }
+    /* Responsive columns - one column layout (vertical) on small screens */
+
+    @media screen and (max-width: 600px) {
+      .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  </style> -->
+
+<body>
+    <!-- 
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <a href="/attendance">
+                    <h1>Mark Attendance</a>
+                </h1>
+                1] Mark Absentee if you are sure you wont be having lunch/dinner at hostel today.
+                <p>2] Your payment records will updated accordingly.</p>
+
+                <!-- <button type=" button" name="MarkAbsent"></button></h1> 
+                    </div>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h1>View Menu:</h1>
+            <img src="/static/img/menu.jpg" height="150px" width="200px" alt="Menu image" />
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h1>
+                <a href="/payment">Payment Records</a>
+            </h1>
+            1] You can view your payment records here.
+            <p>2] In case any discrepancy found, kindly contact Committe.</p>
+        </div>
+    </div>
+    <div class="column">
+        <div class="card">
+            <h1>
+                <a href="/present">Present Records</a>
+            </h1>
+            1] You can view your attendance records here.
+            <p>2] In case any discrepancy found, kindly contact Committe.</p>
+        </div>
+    </div>
+    </div> -->
+
+    <div class="cards style-1">
+        {%for student in data%}{%if student.MIS == session.name%}
+        <h1>Welcome Back {{student.Name}} !</h1>
+        {%endif%}{%endfor%}
+    </div>
+    <div class="cards style-1">
+        <div class="col">
+            <div class="card">
+                <img class="card-image" src="../static/img/present-absent.png" />
+                <div class="card-title">Mark Absentee</div>
+                <div class="card-description">
+                    Mark Absentee if you won't be having lunch/dinner at hostel today<br /><br /><br /><br /><br />
+                    <!-- HTML !--><button class="button-41" role="button" onclick="window.location.href='/attendance'">
+              Mark Absent
+            </button>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img class="card-image" src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=c75e0437e819afdceeb3050a6bcdd71b&amp;auto=format&amp;fit=crop&amp;w=353&amp;q=80 " />
+                <div class="card-title">Today's Menu</div>
+                <div class="card-description">
+                    <!-- <div class="menu " align="center "> -->
+                    Roti<br /> Palak Paneer<br /> Chole <br /> Jeera Rice <br /> Dal Fry <br /><br /><br /><br />
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <img class="card-image" src="../static/img/view-records.jpeg " />
+                <div class="card-title">View Records</div>
+                <div class="card-description">
+                    View when you were present/ absent and Payment Records<br /><br /><br /><br /><br />
+                    <!-- HTML !--><button class="button-41" role="button" onclick="window.location.href='/present'">
+              View Records
+            </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+</body>
+
+</html>

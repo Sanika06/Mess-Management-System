@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Records</title>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        /* border: 2px solid #dfff00; */
+        text-align: left;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #4ecdc4;
+      }
+
+      tbody:nth-child(even) {
+        /* background-color: #dfff00; */
+        background-color: #d9f5f3;
+        /* filter: brightness(135%); */
+      }
+    </style>
+  </head>
+
+  <body>
+    <table align="center">
+      <h1 align="center">Present Records</h1>
+
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>MIS</th>
+          <th>Name</th>
+          <th>Lunch</th>
+          <th>Dinner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {%for data in dataOfStudents%} {%if data.MIS == curr_name %}{%for date in range (1,31)%}
+          <tbody>
+            <td>{{date}}</td>
+            <td>{{data.MIS}}</td>
+            <td>{{data.Name}}</td>
+            {%for temp in data_of_absentees%} {%if date == temp.Lunch%}{%if data.MIS == curr_name %}
+            <td class="absent">A (0)</td>
+            {%else%}
+            <td class="present">P (48)</td>
+            {%endif%} {%else%}
+            <td class="present">P (48)</td>
+            {%endif%} {%endfor %} {%for temp in data_of_absentees%} {%if date == temp.Dinner%}{%if
+            data.MIS == curr_name %}
+            <td class="absent">A (0)</td>
+            {%else%}
+            <td class="present">P (48)</td>
+            {%endif%} {%else%}
+            <td class="present">P (48)</td>
+            {%endif%} {%endfor %}
+          </tbody>
+          {%endfor %}{%endif%}{%endfor %}
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

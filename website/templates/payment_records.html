@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Records</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        td,
+        th {
+            width: 100vh;
+            border: 1px solid #777;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        table {
+            border-collapse: collapse;
+        }
+        
+        tbody tr:nth-child(odd) {
+            background: #eee;
+        }
+        
+        caption {
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <table align="center">
+        <h1 align="center">Present Records</h1>
+
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>MIS</th>
+                <th>Name</th>
+                <th>Lunch</th>
+                <th>Dinner</th>
+                <th>Daily Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in data %} {% for date in range(1, 31) %}
+            <tbody>
+                <td>{{date}}</td>
+
+                <!-- {% set date_var = date %} {% set lunch = data_of_absentees.Lunch %} -->
+                <!-- <td>{{data_of_absentees.Lunch}}</td> -->
+                <td>{{student.MIS}}</td>
+                <td>{{student.Name}}</td>
+                {% if date_var == lunch %}
+                <td>{{date_var }}</td>
+                {% else %}
+                <td>P</td>
+                {% endif%}{% if date_var == lunch %}
+                <td>{{date_var }}</td>
+                {% else %}
+                <td>P</td>
+                {% endif%}
+                <td> 100 </td>
+                </tr>
+            </tbody>
+            {% endfor %} {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
