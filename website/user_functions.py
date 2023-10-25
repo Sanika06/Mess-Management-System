@@ -10,6 +10,8 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy import select
 
 
+
+
 DB_NAME = "mess_management.db"
 
 user_functions = Blueprint('user_functions', __name__)
