@@ -18,7 +18,7 @@ class Attendance(db.Model):
     user_MIS=db.Column(db.String(50),db.ForeignKey('student_info.MIS'))
     ID=db.Column(db.Integer, primary_key=True, autoincrement=True)
     Year=db.Column((db.varchar(50)),default=defaultyear)
-    Month=db.Column((db.String(50)),default=defaultmonth)
+    Month=db.Column((db.varchar(50)),default=defaultmonth)
     Lunch=db.Column(db.String(10), unique=True)
     Dinner=db.Column(db.String(10), unique=True)
 
